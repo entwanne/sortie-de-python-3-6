@@ -1,0 +1,37 @@
+{
+    "object": "container", 
+    "slug": "sortie-de-python-3-5", 
+    "title": "Sortie de Python 3.5", 
+    "introduction": "introduction.md", 
+    "conclusion": "conclusion.md", 
+    "children": [
+        {
+            "object": "extract", 
+            "slug": "tl-dr-resume-des-principales-nouveautes", 
+            "title": "TL;DR - Résumé des principales nouveautés\n\n", 
+            "text": "tl-dr-resume-des-principales-nouveautes.md"
+        }, 
+        {
+            "object": "extract", 
+            "slug": "principales-nouveautes", 
+            "title": "Principales nouveautés\n\n", 
+            "text": "principales-nouveautes.md"
+        }, 
+        {
+            "object": "extract", 
+            "slug": "de-plus-petits-changements", 
+            "title": "De plus petits changements\n\n", 
+            "text": "de-plus-petits-changements.md"
+        }, 
+        {
+            "object": "extract", 
+            "slug": "ce-que-lon-peut-attendre-pour-la-version-3-6-1", 
+            "title": "Ce que l'on peut attendre pour la version 3.6", 
+            "text": "ce-que-lon-peut-attendre-pour-la-version-3-6-1.md"
+        }
+    ], 
+    "version": 2, 
+    "description": "Tour d'horizon de la dernière version du célèbre langage de programmation", 
+    "type": "ARTICLE", 
+    "licence": "CC BY"
+}
