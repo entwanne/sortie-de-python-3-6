@@ -7,21 +7,21 @@
     "children": [
         {
             "object": "extract", 
-            "slug": "tl-dr-resume-des-principales-nouveautes", 
-            "title": "TL;DR - Résumé des principales nouveautés\n\n", 
-            "text": "tl-dr-resume-des-principales-nouveautes.md"
+            "slug": "tl-dr-resume-des-principales-nouveautes-1", 
+            "title": "TL;DR - Résumé des principales nouveautés", 
+            "text": "tl-dr-resume-des-principales-nouveautes-1.md"
         }, 
         {
             "object": "extract", 
-            "slug": "principales-nouveautes", 
-            "title": "Principales nouveautés\n\n", 
-            "text": "principales-nouveautes.md"
+            "slug": "principales-nouveautes-1", 
+            "title": "Principales nouveautés", 
+            "text": "principales-nouveautes-1.md"
         }, 
         {
             "object": "extract", 
-            "slug": "de-plus-petits-changements", 
-            "title": "De plus petits changements\n\n", 
-            "text": "de-plus-petits-changements.md"
+            "slug": "de-plus-petits-changements-1", 
+            "title": "De plus petits changements", 
+            "text": "de-plus-petits-changements-1.md"
         }, 
         {
             "object": "extract", 

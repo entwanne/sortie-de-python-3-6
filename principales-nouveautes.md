@@ -1,9 +1,11 @@
-# Interpolation de chaînes — PEP XXX
+# Interpolation de chaînes littérales — PEP 498
 
-# Arguments nommés ordonnés — PEP XXX
+# Préservation de l'ordre des arguments nommés — PEP 468
 
-# Dictionnaires de classe ordonnés — PEP XXX
+# Bibliothèque de gestion des chemins de fichiers — PEP 519
 
-# Noms donnés aux descripteurs — PEP XXX
+# Préservation de l'ordre des attributs définis dans les classes — PEP 520
 
-# Initialisation de classes filles — PEP XXX
+# Simplification de la personnalisation de classes — PEP 487
+
+# Générateurs asynchrones — PEP 525
