@@ -1,4 +1,3 @@
-
 Il est impossible de savoir précisément ce qui sera disponible dans la prochaine version du langage et de l'interpréteur.
 En effet aucune entreprise ou groupe ne décide par avance des fonctionnalités. Les changements inclus dépendent des
 propositions faites, majoritairement, sur deux *mailling list* :
