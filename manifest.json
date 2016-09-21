@@ -1,7 +1,7 @@
 {
     "object": "container", 
-    "slug": "sortie-de-python-3-5", 
-    "title": "Sortie de Python 3.5", 
+    "slug": "sortie-de-python-3-6", 
+    "title": "Sortie de Python 3.6", 
     "introduction": "introduction.md", 
     "conclusion": "conclusion.md", 
     "children": [
@@ -25,9 +25,9 @@
         }, 
         {
             "object": "extract", 
-            "slug": "ce-que-lon-peut-attendre-pour-la-version-3-6-1", 
-            "title": "Ce que l'on peut attendre pour la version 3.6", 
-            "text": "ce-que-lon-peut-attendre-pour-la-version-3-6-1.md"
+            "slug": "ce-que-lon-peut-attendre-pour-la-version-3-7", 
+            "title": "Ce que l'on peut attendre pour la version 3.7", 
+            "text": "ce-que-lon-peut-attendre-pour-la-version-3-7.md"
         }
     ], 
     "version": 2, 
