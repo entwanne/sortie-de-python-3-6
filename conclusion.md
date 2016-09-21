@@ -1,4 +1,5 @@
-Vous en conviendrez, cette version est sans doute l'une des plus importantes en termes de nouvelles fonctionnalités. Qui plus est, aujourd'hui, plus aucune fonctionnalité n'est introduite dans Python 2.7 et la plupart des [bibliothèques populaires](https://python3wos.appspot.com/) sont compatibles avec Python 3, nous pouvons espérer que cette version permette enfin de parachever le basculement de Python 2 à Python 3. 
+Cette version ne bouscule donc pas l'écosystème Python en n'apportant que quelques modifications cosmétiques.
+Ces modifications étaient toutefois attendues de longue date, et améliorent encore le confort des développeurs.
 
 Vous pouvez dès maintenant [télécharger cette nouvelle version](https://www.python.org/downloads/) sur le site officiel de Python. 
 
