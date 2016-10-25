@@ -8,9 +8,9 @@ Une chaîne préfixée de `f` sera interpolée à sa création, de manière à r
 
 # Préservation de l'ordre des arguments nommés — PEP 468
 
-# Bibliothèque de gestion des chemins de fichiers — PEP 519
+# Protocole de gestion des chemins de fichiers — PEP 519
 
-Finies les lignes à rallonge à base de `os.path.join` et autres, maintenant qu'arrive `pathlib`.
+Cette PEP revient sur la `pathlib`, bibliothèque de gestion des chemins de fichiers, pour lui ajouter son propre protocole.
 
 Spécialisée dans la manipulation de chemins de fichiers, cette bibliothèque comporte aussi de nombreux outils pour opérer sur ces fichiers (création de fichier, de dossier, suppression, etc.)
 

@@ -26,15 +26,28 @@ Les fonctionnalités listées ici seront bien sûr détaillées par la suite.
     a -> 1
     ```
 
- - [PEP 519](https://www.python.org/dev/peps/pep-0519/) : ajout d'une bibliothèque de gestion des chemins de fichiers.
+ - [PEP 519](https://www.python.org/dev/peps/pep-0519/) : ajout d'un protocole de gestion des chemins de fichiers.
 
     ```python
     >>> import pathlib
     >>> path = pathlib.Path('/home')
     >>> path / 'john'
     PosixPath('/home/john')
+    >>> with open(path / 'john' / '.python_history') as f:
+    ...     history = f.read()
+    ...
     ```
 
  - [PEP 520](https://www.python.org/dev/peps/pep-0520/) : le dictionnaire des attributs/méthodes définis dans le corps d'une classe est lui aussi ordonné.
+
+    ```python
+    >>> class A:
+    ...     x = 0
+    ...     y = 0
+    ...     z = 0
+    ...
+    >>> A.__dict__
+    mappingproxy({..., 'x': 0, 'y': 0, 'z': 0, ...})
+    ```
 
  - [PEP 487](https://www.python.org/dev/peps/pep-0487/) : une nouvelle méthode permet d'interférer sur la création de classes filles à la classe courante et les descripteurs sont informés lorsqu'ils sont assignés à un attribut de la classe, *via* leur méthode `__set_name__`.
