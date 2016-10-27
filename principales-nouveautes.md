@@ -4,7 +4,27 @@ Loin sont maintenant les `'My name is {name}'.format(name=name)` ou encore `'My 
 Avec Python 3.6, le formatage de chaînes de caractères gagne en clarté avec l'interpolation littérale.
 
 En plus du préfixe `r` pour définir une chaîne brute, le préfixe `b` pour une chaîne d'octets, arrive maintenant le préfixe `f`, dédié au formatage.
-Une chaîne préfixée de `f` sera interpolée à sa création, de manière à résoudre les noms utilisés au sein de la chaîne de formatage.
+Une chaîne préfixée de `f` sera interpolée à sa création, de manière à résoudre les expressions utilisées au sein de la chaîne de formatage.
+
+```python
+>>> import datetime
+>>> date = datetime.date.today()
+>>> f'Cet article a été écrit le {date}'
+'Cet article a été écrit le 2016-10-27'
+>>> f'Cet article a été écrit le {date:%d %B %Y}'
+'Cet article a été écrit le 27 octobre 2016'
+```
+
+Les accolades peuvent non seulement contenir un nom de variable, mais aussi toute expression Python valide.
+
+```python
+>>> nb_pommes = 5
+>>> print(f"J'ai {nb_pommes} pomme{'s' if nb_pommes > 1 else ''}.")
+J'ai 5 pommes.
+>>> nb_pommes = 1
+>>> print(f"J'ai {nb_pommes} pomme{'s' if nb_pommes > 1 else ''}.")
+J'ai 1 pomme.
+```
 
 # Préservation de l'ordre des arguments nommés — PEP 468
 
