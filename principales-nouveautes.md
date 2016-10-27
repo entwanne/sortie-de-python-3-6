@@ -77,6 +77,11 @@ for filename in os.listdir(UserHome('clem')):
 
 # Préservation de l'ordre des attributs définis dans les classes — PEP 520
 
+Similairement à la PEP 468, le dictionnaire des attributs d'une classe est maintenant assuré d'être ordonné.
+Il conservera alors l'ordre de définition des attributs dans le corps de la classe.
+
+Cela permet entre autres une meilleure introspection des classes.
+
 # Simplification de la personnalisation de classes — PEP 487
 
 # Générateurs asynchrones — PEP 525
