@@ -61,6 +61,20 @@ Spécialisée dans la manipulation de chemins de fichiers, cette bibliothèque c
 Une nouvelle méthode spéciale est maintenant disponible pour nos objets : la méthode `__fspath__`. Elle ne prend aucun paramètre et doit retourner une chaîne de caractères.
 Tout objet implémentant cette méthode est considéré par Python comme un chemin, et peut alors être utilisé avec les fonctions Python gérant des chemins (`open`, `os.path.join`, etc.).
 
+```python
+import os
+
+class UserHome:
+    def __init__(self, username):
+        self.username = username
+
+    def __fspath__(self):
+        return f'/home/{self.username}'
+
+for filename in os.listdir(UserHome('clem')):
+    print(filename)
+```
+
 # Préservation de l'ordre des attributs définis dans les classes — PEP 520
 
 # Simplification de la personnalisation de classes — PEP 487
