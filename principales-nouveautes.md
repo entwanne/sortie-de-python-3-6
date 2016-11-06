@@ -15,6 +15,8 @@ Une chaîne préfixée de `f` sera interpolée à sa création, de manière à r
 'Cet article a été écrit le 27 octobre 2016'
 ```
 
+(ces exemples de formattage sont permis par [la méthode `__format__` des objets `datetime.date`](https://docs.python.org/3/library/datetime.html#datetime.date.__format__).
+
 Les accolades peuvent non seulement contenir un nom de variable, mais aussi toute expression Python valide.
 
 ```python
