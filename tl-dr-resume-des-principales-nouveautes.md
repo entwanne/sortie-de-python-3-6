@@ -50,4 +50,4 @@ Les fonctionnalités listées ici seront bien sûr détaillées par la suite.
     mappingproxy({..., 'x': 0, 'y': 0, 'z': 0, ...})
     ```
 
- - [PEP 487](https://www.python.org/dev/peps/pep-0487/) : une nouvelle méthode permet d'interférer sur la création de classes filles à la classe courante et les descripteurs sont informés lorsqu'ils sont assignés à un attribut de la classe, *via* leur méthode `__set_name__`.
+ - [PEP 487](https://www.python.org/dev/peps/pep-0487/) : une nouvelle méthode (`__init_subclass__`) permet d'interférer sur la création de classes filles à la classe courante ; et les descripteurs sont informés lorsqu'ils sont assignés à un attribut de la classe, *via* leur méthode `__set_name__`.

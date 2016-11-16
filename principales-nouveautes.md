@@ -82,8 +82,76 @@ for filename in os.listdir(UserHome('clem')):
 Similairement à la PEP 468, le dictionnaire des attributs d'une classe est maintenant assuré d'être ordonné.
 Il conservera alors l'ordre de définition des attributs dans le corps de la classe.
 
+Cela peut servir pour des classes dont l'ordre des attributs/méthodes serait important, telle qu'une énumération (`Enum`).
 Cela permet entre autres une meilleure introspection des classes.
+
+Il était autrefois possible d'avoir un dictionnaire ordonné pour les attributs en passant par une métaclasse.
+En effet, la méthode `__prepare__` des métaclasses permet de spécialiser la création du dictionnaire `__dict__`, et donc de retourner un `OrderedDict` si besoin.
+
+La volonté de cette PEP (et de la 487) est de réduire le besoin de recourir aux métaclasses pour des problèmes simples.
 
 # Simplification de la personnalisation de classes — PEP 487
 
-# Générateurs asynchrones — PEP 525
+## Héritage
+
+Une classe peut maintenant influer sur les classes qui en héritent.
+C'est ce que permet la méthode `__init_subclass__` nouvellement ajoutée par cette PEP.
+La méthode sera appelée chaque fois qu'une classe fille sera créée (et non instanciée), et la classe fille passée en paramètre.
+
+```python
+>>> class SubclassMePlease:
+...     def __init_subclass__(cls):
+...         print('Creation of', cls)
+...
+>>> class Ok(SubclassMePlease):
+...     pass
+...
+Creation of <class '__main__.Ok'>
+```
+
+Cette méthode de classe reçoit aussi en paramètre l'ensemble des arguments nommés passés lors de l'héritage.
+Vous ne le saviez peut-être pas, mais des arguments peuvent être donnés lors d'un héritage (notamment pour la précision de la métaclasse).
+
+```python
+>>> class SubclassMePlease:
+...     def __init_subclass__(cls, *, name, **kwargs):
+...         print('Creation of', cls, 'with name', name)
+...         cls.name = name
+...
+>>> class Roger(SubclassMePlease, name='roger'):
+...     pass
+...
+Creation of <class '__main__.Ok'> with name roger
+>>> Roger.name
+'roger'
+```
+
+## Descripteurs
+
+Cette PEP ajoute aussi une nouvelle méthode spéciale aux descripteurs, la méthode `__set_name__`.
+Elle permet au descripteur de savoir quel nom d'attribut lui a été donné au sein de la classe.
+En effet, la méthode sera appelée suite à la création de la classe, avec comme arguments la classe et le nom du descripteur.
+
+Cela peut s'avérer utile pour les descripteurs qui donnent accès à un autre attribut de l'objet, dont le nom peut maintenant être interpolé depuis celi du descripteur.
+
+Dans l'exemple suivant, nous avons des descripteurs `width` et `height` qui permettent un accès en lecture à `_width` et `_height`.
+
+```python
+class AttributeReader:
+    def __set_name__(self, owner, name):
+        self.attr = '_{}'.format(name)
+
+    def __get__(self, instance, owner):
+        if instance is None:
+            return self
+        return getattr(instance, self.attr)
+
+class Rect:
+    width = AttributeReader()
+    height = AttributeReader()
+
+    def __init__(self, width, height):
+        self._width, self._height = width, height
+```
+
+# Générateurs et compréhensions asynchrones — PEP 525 & 530
