@@ -39,5 +39,17 @@ Des `underscores` peuvent maintenant être utilisés dans l'écriture littérale
 52225
 ```
 
+ - [PEP 506](http://www.python.org/dev/peps/pep-0506) : Ajout d'un module `secrets` pour générer des nombres aléatoires plus sûrs.
+
+ - [PEP 523](http://www.python.org/dev/peps/pep-0523) : Ajout d'une API pour l'évaluation de frames de CPython.
+
+ - [PEP 528](http://www.python.org/dev/peps/pep-0528) et [PEP 529](http://www.python.org/dev/peps/pep-0529) : Utilisation d'UTF-8 pour la console et les chemins de fichiers sur Windows.
+
+ - [PEP 509](http://www.python.org/dev/peps/pep-0509) et [PEP 510](http://www.python.org/dev/peps/pep-0510) : Outils d'optimisation au cœur de l'interpréteur (dictionnaires versionnés et *guards* sur les fonctions).
+
+ - [PEP 495](http://www.python.org/dev/peps/pep-0495) : Différenciation des temps identiques après changement d'heure.
+
+ - [PEP 524](http://www.python.org/dev/peps/pep-0524) : Make os.urandom() blocking on Linux
+
 
 Cette version 3.6 vient aussi avec son lot de corrections de bogues, que vous pourrez retrouver dans le *changelog* de la version.

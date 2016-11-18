@@ -12,3 +12,7 @@ tard dans le cycle de développement.
 
 [[a]]
 | Malgré ces incertitudes, on peut deviner quelques modifications probables. Attention, cette section reste très spéculative...
+
+# Propriétés de classes
+
+# Sous-interpréteurs
