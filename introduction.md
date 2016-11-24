@@ -1,4 +1,4 @@
-Nous vous parlions [il y a un an de la sortie de la version 3.5](https://zestedesavoir.com/articles/175/sortie-de-python-3-5/) du langage [Python](https://www.python.org/).
+Nous vous parlions [il y a un an de la sortie de la version 3.5](/articles/175/sortie-de-python-3-5/) du langage [Python](https://www.python.org/).
 Cette version portait notamment sur la programmation asynchrone (mots-clés `async` et `await`) et l'*unpacking*.
 
 Les mois ont passé et arrivent aujourd'hui Python 3.6 (nouvelle version du langage) et CPython 3.6 (interpréteur officiel).
