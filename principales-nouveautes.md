@@ -155,3 +155,62 @@ class Rect:
 ```
 
 # Générateurs et compréhensions asynchrones — PEP 525 & 530
+
+[[a]]
+| Les paragraphes qui suivent demandent des connaissance sur le concept de générateur en Python.
+
+Les mots-clés `async` et `await` [introduits avec Python 3.5](/articles/1568/decouvrons-la-programmation-asynchrone-en-python/#5-la-syntaxe-asynchrone-de-python-3-5) connaissent une nouvelle extension.
+En effet, il devient désormais possible de coupler les coroutines avec des générateurs et des compréhensions (listes en intension, *generator expressions*).
+
+C'est à dire que l'on va pouvoir définir un générateur asynchrone, qui dépendra d'événements externes pour produire ses valeurs.
+L'itération sur ces générateurs devra alors être réalisée *via* `async for` plutôt qu'un simple `for`, au sein des coroutines.
+
+Imaginons un générateur qui produirait les lignes d'un texte en les récupérant depuis un programme distant. Nous le représenterons ici par une itération sur un fichier, faisant une pause d'une seconde après chaque ligne pour illustrer une certaine latence.
+
+```python
+import asyncio
+
+async def produce_lines(filename):
+    with open(filename, 'r') as f:
+        for line in f:
+            yield line.rstrip('\n')
+            await asyncio.sleep(1)
+```
+
+On reconnaît que `produce_lines` est un générateur à l'utilisation du mot-clé `yield` en ligne 6.
+
+Nous pouvons alors avoir une seconde coroutine, `print_lines`, qui itérera sur ce générateur pour afficher les lignes produites.
+
+```python
+async def print_lines(filename):
+    async for line in produce_lines(filename):
+        print(line)
+```
+
+Et à l'utilisation :
+
+```python
+>>> loop = asyncio.get_event_loop()
+>>> loop.run_until_complete(print_lines('corbeau.txt'))
+Maître Corbeau, sur un arbre perché,
+Tenait en son bec un fromage.
+Maître Renard, par l'odeur alléché,
+Lui tint à peu près ce langage :
+...
+```
+
+Quant aux compréhensions asynchrones, introduites par la PEP 530, elles s'illustrent par la coroutine suivante, chargée de retourner la liste de ces lignes.
+
+```python
+async def get_lines(filename):
+    return [line async for line in produce_lines(filename)]
+```
+
+Notez bien le `async for` utilisé dans la compréhension.
+
+L'appel à notre coroutine au sein de notre boucle événementielle nous retourne donc ici la liste des lignes.
+
+```python
+>>> loop.run_until_complete(get_lines('corbeau.txt'))
+['Maître Corbeau, sur un arbre perché,', 'Tenait en son bec un fromage.', "Maître Renard, par l'odeur alléché,", ...]
+```
