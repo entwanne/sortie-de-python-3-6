@@ -1,4 +1,4 @@
-# Interpolation de chaînes littérales — PEP 498
+# Interpolation de chaînes littérales — [PEP 498](https://www.python.org/dev/peps/pep-0498/)
 
 Loin sont maintenant les `'My name is {name}'.format(name=name)` ou encore `'My name is {}'.format(name)`.
 Avec Python 3.6, le formatage de chaînes de caractères gagne en clarté avec l'interpolation littérale.
@@ -28,7 +28,7 @@ J'ai 5 pommes.
 J'ai 1 pomme.
 ```
 
-# Préservation de l'ordre des arguments nommés — PEP 468
+# Préservation de l'ordre des arguments nommés — [PEP 468](https://www.python.org/dev/peps/pep-0468/)
 
 Les paramètres du type `**kwargs` dans la signature d'une fonction sont maintenant assurés d'être des dictionnaires ordonnés.
 Ils sont ainsi récupérés dans l'ordre où ils ont été saisis.
@@ -54,7 +54,7 @@ coords = OrderedDict([('x', 0), ('y', 5), ('z', 1)])
 | {'x': 0, 'y': 5, 'z': 1}
 | ```
 
-# Protocole de gestion des chemins de fichiers — PEP 519
+# Protocole de gestion des chemins de fichiers — [PEP 519](https://www.python.org/dev/peps/pep-0519/)
 
 Cette PEP revient sur la `pathlib`, bibliothèque de gestion des chemins de fichiers, pour lui ajouter son propre protocole.
 
@@ -77,7 +77,7 @@ for filename in os.listdir(UserHome('clem')):
     print(filename)
 ```
 
-# Préservation de l'ordre des attributs définis dans les classes — PEP 520
+# Préservation de l'ordre des attributs définis dans les classes — [PEP 520](https://www.python.org/dev/peps/pep-0520/)
 
 Similairement à la PEP 468, le dictionnaire des attributs d'une classe est maintenant assuré d'être ordonné.
 Il conservera alors l'ordre de définition des attributs dans le corps de la classe.
@@ -90,7 +90,7 @@ En effet, la méthode `__prepare__` des métaclasses permet de spécialiser la c
 
 La volonté de cette PEP (et de la 487) est de réduire le besoin de recourir aux métaclasses pour des problèmes simples.
 
-# Simplification de la personnalisation de classes — PEP 487
+# Simplification de la personnalisation de classes — [PEP 487](https://www.python.org/dev/peps/pep-0487/)
 
 ## Héritage
 
@@ -154,7 +154,7 @@ class Rect:
         self._width, self._height = width, height
 ```
 
-# Générateurs et compréhensions asynchrones — PEP 525 & 530
+# Générateurs et compréhensions asynchrones — [PEP 525](https://www.python.org/dev/peps/pep-0525/) & [PEP 530](https://www.python.org/dev/peps/pep-0530/)
 
 [[a]]
 | Les paragraphes qui suivent demandent des connaissance sur le concept de générateur en Python.

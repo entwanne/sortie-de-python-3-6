@@ -15,7 +15,7 @@ tard dans le cycle de développement.
 
 Nous ne reparlerons pas ici des **propriétés de classes** et des **sous-interpréteurs**, abordés dans [le précédent article](/articles/175/sortie-de-python-3-5/#4-ce-que-lon-peut-attendre-pour-la-version-3-6-1).
 
-# Syntaxe pour les arguments uniquement positionnels (PEP 457)
+# Syntaxe pour les arguments uniquement positionnels ([PEP 457](https://www.python.org/dev/peps/pep-0457/))
 
 Les arguments positionnels en Python sont les arguments passés aux fonctions qui sont assignés aux paramètres en fonction de leur position.
 Par exemple, avec une fonction `def add(x, y): pass`, dans l'expression `add(3, 5)`, le paramètre `x` récupérera la valeur du premier argument (3), et `y` celle du second (5).
@@ -32,7 +32,7 @@ def add(x, y, /):
     return x + y
 ```
 
-# Expressions attrapant les exceptions (PEP 463)
+# Expressions attrapant les exceptions ([PEP 463](https://www.python.org/dev/peps/pep-0463/))
 
 Cette PEP vise à permettre d'attraper des exceptions sous forme d'expressions, évitant de créer un bloc `try`/`except` dans les cas les plus simples.
 
@@ -50,7 +50,7 @@ Ainsi, les deux codes suivants seraient équivalents.
       result = 0
   ```
 
-# Généralisation de l'interpolation de chaînes (PEP 501)
+# Généralisation de l'interpolation de chaînes ([PEP 501](https://www.python.org/dev/peps/pep-0501/))
 
 L'interpolation de chaînes arrivée avec Python 3.6 ouvre de nouvelles perspectives pour les versions suivantes.
 
@@ -60,7 +60,7 @@ L'expression `i'...'` retournerait un objet d'un nouveau type (un *template*) do
 Cette PEP permettrait d'appliquer plusieurs fois `format` sur un *template* et donc de le réutiliser.
 Il deviendrait aussi possible d'étendre le type de *template* pour implémenter sa propre méthode `__format__` et bénéficier d'un formatage différent (pour des raisons de sécurité par exemple).
 
-# Opérateurs de coalescence (PEP 505)
+# Opérateurs de coalescence ([PEP 505](https://www.python.org/dev/peps/pep-0505/))
 
 Les opérateurs de coalescence (*null-coalescing*) sont des opérateurs qui simplifient la gestion des valeurs nulles, que l'on retrouve dans plusieurs langages (C#, Ruby, Perl, PHP, etc.).
 Ils permettent de n'exécuter la suite d'une expression que si la valeur utilisée n'est pas nulle.
