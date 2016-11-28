@@ -1,7 +1,9 @@
 Comme pour la version précédente, commençons par un résumé des [principales nouveautés](https://docs.python.org/3.6/whatsnew/3.6.html).
 Les fonctionnalités listées ici seront bien sûr détaillées par la suite.
 
- - [PEP 498](https://www.python.org/dev/peps/pep-0498/) : les chaînes de caractères peuvent maintenant être préfixées du symbole `f` pour être interpolées en fonction des variables du scope courant.
+ -  [PEP 498](https://www.python.org/dev/peps/pep-0498/) : les chaînes de caractères peuvent maintenant être préfixées du symbole `f` pour être interpolées en fonction des variables du scope courant.
+
+    Cette fonctionnalité reprend globalement la syntaxe supportée par la méthode `format` des chaînes de caractères.
 
     ```python
     >>> name = 'John'
@@ -9,7 +11,8 @@ Les fonctionnalités listées ici seront bien sûr détaillées par la suite.
     'Hello John!'
     ```
 
- - [PEP 468](https://www.python.org/dev/peps/pep-0468/) : les arguments nommés reçus par une fonction sont maintenant assurés d'être ordonnés.
+ -  [PEP 468](https://www.python.org/dev/peps/pep-0468/) : les arguments nommés reçus par une fonction sont maintenant assurés d'être ordonnés.
+    Le paramètre spécial `**kwargs` d'une fonction correspondra alors toujours à un dictionnaire ordonné des arguments nommés.
 
     ```python
     >>> def func(**kwargs):
@@ -26,7 +29,8 @@ Les fonctionnalités listées ici seront bien sûr détaillées par la suite.
     a -> 1
     ```
 
- - [PEP 519](https://www.python.org/dev/peps/pep-0519/) : ajout d'un protocole de gestion des chemins de fichiers.
+ -  [PEP 519](https://www.python.org/dev/peps/pep-0519/) : ajout d'un protocole pour les chemins de fichiers.
+    Il devient maintenant plus facile de manipuler des chemins et d'interagir avec les fonctions système.
 
     ```python
     >>> import pathlib
@@ -38,7 +42,8 @@ Les fonctionnalités listées ici seront bien sûr détaillées par la suite.
     ...
     ```
 
- - [PEP 520](https://www.python.org/dev/peps/pep-0520/) : le dictionnaire des attributs/méthodes définis dans le corps d'une classe est lui aussi ordonné.
+ -  [PEP 520](https://www.python.org/dev/peps/pep-0520/) : le dictionnaire de définition d'une classe devient lui aussi ordonné.
+    L'ordre de définition des attributs et méthodes des classes est donc conservé.
 
     ```python
     >>> class A:
@@ -50,4 +55,20 @@ Les fonctionnalités listées ici seront bien sûr détaillées par la suite.
     mappingproxy({..., 'x': 0, 'y': 0, 'z': 0, ...})
     ```
 
- - [PEP 487](https://www.python.org/dev/peps/pep-0487/) : une nouvelle méthode (`__init_subclass__`) permet d'interférer sur la création de classes filles à la classe courante ; et les descripteurs sont informés lorsqu'ils sont assignés à un attribut de la classe, *via* leur méthode `__set_name__`.
+ -  [PEP 487](https://www.python.org/dev/peps/pep-0487/) : une nouvelle méthode (`__init_subclass__`) permet d'interférer sur la création de classes filles à la classe courante ; et les descripteurs sont informés lorsqu'ils sont assignés à un attribut de la classe, *via* leur méthode `__set_name__`.
+
+ -  [PEP 525](https://www.python.org/dev/peps/pep-0525/) : il devient possible d'écrire générateurs asynchrones.
+    Ils fonctionneront comme des générateurs habituels, à utiliser depuis d'autres coroutines.
+
+    ```python
+    async def async_range(start, stop):
+        for i in range(start, stop):
+            yield i
+    ```
+
+- [PEP 530](https://www.python.org/dev/peps/pep-0530/) : le mot-clé `async` peut maintenant être utilisé dans les listes en intension (et autres compréhensions) au sein d'une coroutine.
+
+    ```python
+    async def coroutine():
+        return [i async for i in async_range(0, 10)]
+    ```
