@@ -49,7 +49,7 @@ Des `underscores` peuvent maintenant être utilisés dans l'écriture littérale
 
  - [PEP 495](http://www.python.org/dev/peps/pep-0495) : Différenciation des temps identiques après changement d'heure.
 
- - [PEP 524](http://www.python.org/dev/peps/pep-0524) : Make os.urandom() blocking on Linux
+ - [PEP 524](http://www.python.org/dev/peps/pep-0524) : La fonction `os.urandom` est maintenant bloquante sur les systèmes Linux pour une sécurité accrue.
 
 
 Cette version 3.6 vient aussi avec son lot de corrections de bogues, que vous pourrez retrouver dans le *changelog* de la version.

@@ -1,6 +1,7 @@
-Cette version ne bouscule donc pas l'écosystème Python en n'apportant que quelques modifications cosmétiques.
+Python 3.6 ne bouscule donc pas l'écosystème du langage en n'apportant que quelques modifications cosmétiques.
 Ces modifications étaient toutefois attendues de longue date, et améliorent encore le confort des développeurs.
 
-Vous pouvez dès maintenant [télécharger cette nouvelle version](https://www.python.org/downloads/) sur le site officiel de Python. 
+Cette nouvelle version est disponible sur le site officiel de Python, [à la page des téléchargements](https://www.python.org/downloads/).
 
-Enfin, si certains points de cet article ne sont pas clairs pour vous, n'hésitez pas à nous en faire part en commentaire et nous nous efforcerons de clarifier vos interrogations !
+Pour toute question/remarque sur Python 3.6 ou sur le présent article, la section commentaires est à votre libre disposition.
+Nous nous ferons un plaisir de répondre à vots interrogations !
