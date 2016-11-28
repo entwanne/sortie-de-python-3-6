@@ -6,6 +6,22 @@ Avec Python 3.6, le formatage de chaînes de caractères gagne en clarté avec l
 En plus du préfixe `r` pour définir une chaîne brute, le préfixe `b` pour une chaîne d'octets, arrive maintenant le préfixe `f`, dédié au formatage.
 Une chaîne préfixée de `f` sera interpolée à sa création, de manière à résoudre les expressions utilisées au sein de la chaîne de formatage.
 
+La syntaxe pour l'interpolation littérale est reprise sur [la syntaxe de la méthode `str.format`](https://docs.python.org/3/library/string.html#formatspec).
+Au détail près que sont accessibles les variables de l'espace de nom courant plutôt que seulement les valeurs qui étaient auparavant passées en arguments.
+
+```python
+>>> name = 'John'
+>>> f'Hello {name}'
+'Hello John'
+>>> # Équivalent à
+>>> 'Hello {name}'.format(name=name)
+'Hello John'
+>>> 'Hello {name}'.format(**locals())
+'Hello John'
+```
+
+Des formatages plus complets sont permis par la méthode `__format__` de certains objets, comme ici pour ceux de type [`datetime.date`](https://docs.python.org/3/library/datetime.html#datetime.date.__format__).
+
 ```python
 >>> import datetime
 >>> date = datetime.date.today()
@@ -14,8 +30,6 @@ Une chaîne préfixée de `f` sera interpolée à sa création, de manière à r
 >>> f'Cet article a été écrit le {date:%d %B %Y}'
 'Cet article a été écrit le 27 octobre 2016'
 ```
-
-(ces exemples de formattage sont permis par [la méthode `__format__` des objets `datetime.date`](https://docs.python.org/3/library/datetime.html#datetime.date.__format__).
 
 Les accolades peuvent non seulement contenir un nom de variable, mais aussi toute expression Python valide.
 
@@ -31,9 +45,29 @@ J'ai 1 pomme.
 # Préservation de l'ordre des arguments nommés — [PEP 468](https://www.python.org/dev/peps/pep-0468/)
 
 Les paramètres du type `**kwargs` dans la signature d'une fonction sont maintenant assurés d'être des dictionnaires ordonnés.
-Ils sont ainsi récupérés dans l'ordre où ils ont été saisis.
+Les arguments nommés sont ainsi récupérés dans l'ordre où ils ont été saisis.
 
-Cela permet par exemple de construire facilement un objet `OrderedDict`.
+```python
+def xml_tag(name, **kwargs):
+    lines = [f'<{name}>']
+    for key, value in kwargs.items():
+        lines.append(f'    <{key}>{value}</{key}>')
+    lines.append(f'</{name}>')
+    return '\n'.join(lines)
+```
+
+Cette fonction nous permet de sérialiser un extrait XML tout en conservant le bon ordre des éléments fils.
+
+```python
+>>> print(xml_tag('book', title='Notre-Dame de Paris', author='Victor Hugo', year=1831))
+<book>
+    <title>Notre-Dame de Paris</title>
+    <author>Victor Hugo</author>
+    <year>1831</year>
+</book>
+```
+
+Il devient aussi possible de construire facilement un objet `OrderedDict`.
 
 ```python
 from collections import OrderedDict
@@ -53,6 +87,8 @@ coords = OrderedDict([('x', 0), ('y', 5), ('z', 1)])
 | >>> {'x': 0, 'y': 5, 'z': 1}
 | {'x': 0, 'y': 5, 'z': 1}
 | ```
+|
+| CPython reprend ici les travaux entrepris par *pypy* pour construire une version des dictionnaires plus compacte, c'est à dire occupant moins despace en mémoire.
 
 # Protocole de gestion des chemins de fichiers — [PEP 519](https://www.python.org/dev/peps/pep-0519/)
 
@@ -77,13 +113,33 @@ for filename in os.listdir(UserHome('clem')):
     print(filename)
 ```
 
+Nous avons ici notre propre type d'objet (`UserHome`), qui est interprété par les fonctions systèmes (`os.listdir` dans notre cas) comme un chemin de fichier.
+
 # Préservation de l'ordre des attributs définis dans les classes — [PEP 520](https://www.python.org/dev/peps/pep-0520/)
 
 Similairement à la PEP 468, le dictionnaire des attributs d'une classe est maintenant assuré d'être ordonné.
 Il conservera alors l'ordre de définition des attributs dans le corps de la classe.
 
 Cela peut servir pour des classes dont l'ordre des attributs/méthodes serait important, telle qu'une énumération (`Enum`).
-Cela permet entre autres une meilleure introspection des classes.
+Cela permet aussi une meilleure introspection des classes.
+
+```python
+class AutoEnum:
+    red = None
+    green = None
+    blue = None
+
+i = 0
+for name, value in AutoEnum.__dict__.items():
+    if not name.startswith('__') and not name.endswith('__') and value is None:
+        setattr(AutoEnum, name, i)
+        i += 1
+```
+
+```python
+>>> print(AutoEnum.__dict__)
+{'__module__': '__main__', 'red': 0, 'green': 1, 'blue': 2, ...}
+```
 
 Il était autrefois possible d'avoir un dictionnaire ordonné pour les attributs en passant par une métaclasse.
 En effet, la méthode `__prepare__` des métaclasses permet de spécialiser la création du dictionnaire `__dict__`, et donc de retourner un `OrderedDict` si besoin.
@@ -111,6 +167,7 @@ Creation of <class '__main__.Ok'>
 
 Cette méthode de classe reçoit aussi en paramètre l'ensemble des arguments nommés passés lors de l'héritage.
 Vous ne le saviez peut-être pas, mais des arguments peuvent être donnés lors d'un héritage (notamment pour la précision de la métaclasse).
+Il était déjà possible auparavant de les récupérer dans les méthode `__new__` et `__init__` des métaclasses.
 
 ```python
 >>> class SubclassMePlease:
