@@ -113,7 +113,7 @@ for filename in os.listdir(UserHome('clem')):
     print(filename)
 ```
 
-Nous avons ici notre propre type d'objet (`UserHome`), qui est interprété par les fonctions système (`os.listdir` dans notre cas) comme un chemin de fichier.
+Nous avons ici notre propre type d'objet (`UserHome`), qui est interprété par les fonctions systèmes (`os.listdir` dans notre cas) comme un chemin de fichier.
 
 # Préservation de l'ordre des attributs définis dans les classes — [PEP 520](https://www.python.org/dev/peps/pep-0520/)
 

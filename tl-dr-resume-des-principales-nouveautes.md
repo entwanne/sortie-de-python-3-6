@@ -30,7 +30,7 @@ Les fonctionnalités listées ici seront bien sûr détaillées par la suite. Po
     ```
 
  -  [PEP 519](https://www.python.org/dev/peps/pep-0519/) : ajout d'un protocole pour les chemins de fichiers.
-    Il devient maintenant plus facile de manipuler des chemins et d'interagir avec les fonctions système.
+    Il devient maintenant plus facile de manipuler des chemins et d'interagir avec les fonctions systèmes.
 
     ```python
     >>> import pathlib
