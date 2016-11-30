@@ -241,7 +241,7 @@ Nous pouvons alors avoir une seconde coroutine, `print_lines`, qui itérera sur 
 ```python
 async def print_lines(filename):
     async for line in produce_lines(filename):
-        print(line)
+        print(f'[{filename}]', line)
 ```
 
 Et à l'utilisation :
@@ -249,11 +249,22 @@ Et à l'utilisation :
 ```python
 >>> loop = asyncio.get_event_loop()
 >>> loop.run_until_complete(print_lines('corbeau.txt'))
-Maître Corbeau, sur un arbre perché,
-Tenait en son bec un fromage.
-Maître Renard, par l'odeur alléché,
-Lui tint à peu près ce langage :
-...
+[corbeau.txt] Maître Corbeau, sur un arbre perché,
+[corbeau.txt] Tenait en son bec un fromage.
+[corbeau.txt] Maître Renard, par l'odeur alléché,
+[corbeau.txt] Lui tint à peu près ce langage :
+[...]
+>>> loop.run_until_complete(asyncio.wait([print_lines('corbeau.txt'),
+...                                       print_lines('loup.txt')]))
+[corbeau.txt] Maître Corbeau, sur un arbre perché,
+[loup.txt] La raison du plus fort est toujours la meilleure :
+[corbeau.txt] Tenait en son bec un fromage.
+[loup.txt] Nous l'allons montrer tout à l'heure.
+[corbeau.txt] Maître Renard, par l'odeur alléché,
+[loup.txt] Un Agneau se désaltérait
+[corbeau.txt] Lui tint à peu près ce langage :
+[loup.txt] Dans le courant d'une onde pure.
+[...]
 ```
 
 Quant aux compréhensions asynchrones, introduites par la PEP 530, elles s'illustrent par la coroutine suivante, chargée de retourner la liste de ces lignes.
@@ -269,5 +280,5 @@ L'appel à notre coroutine au sein de notre boucle événementielle nous retourn
 
 ```python
 >>> loop.run_until_complete(get_lines('corbeau.txt'))
-['Maître Corbeau, sur un arbre perché,', 'Tenait en son bec un fromage.', "Maître Renard, par l'odeur alléché,", ...]
+['Maître Corbeau, sur un arbre perché,', 'Tenait en son bec un fromage.', ...]
 ```
