@@ -185,7 +185,7 @@ Creation of <class '__main__.Ok'> with name roger
 
 ## Descripteurs
 
-Cette PEP ajoute aussi une nouvelle méthode spéciale aux descripteurs, la méthode `__set_name__`.
+Cette PEP ajoute aussi une nouvelle méthode spéciale aux [descripteurs](/contenus/954/notions-de-python-avancees/7-accessors-descriptors/#2-2-descriptors), la méthode `__set_name__`.
 Elle permet au descripteur de savoir quel nom d'attribut lui a été donné au sein de la classe.
 En effet, la méthode sera appelée suite à la création de la classe, avec comme arguments la classe et le nom du descripteur.
 
@@ -214,7 +214,7 @@ class Rect:
 # Générateurs et compréhensions asynchrones — [PEP 525](https://www.python.org/dev/peps/pep-0525/) & [PEP 530](https://www.python.org/dev/peps/pep-0530/)
 
 [[a]]
-| Les paragraphes qui suivent demandent des connaissance sur le concept de générateur en Python.
+| Les paragraphes qui suivent demandent des connaissances sur les concepts de [générateurs](/contenus/954/notions-de-python-avancees/5-generators/) et de [programmation asynchrone](/articles/1568/decouvrons-la-programmation-asynchrone-en-python/).
 
 Les mots-clés `async` et `await` [introduits avec Python 3.5](/articles/1568/decouvrons-la-programmation-asynchrone-en-python/#5-la-syntaxe-asynchrone-de-python-3-5) connaissent une nouvelle extension.
 En effet, il devient désormais possible de coupler les coroutines avec des générateurs et des compréhensions (listes en intension, *generator expressions*).
