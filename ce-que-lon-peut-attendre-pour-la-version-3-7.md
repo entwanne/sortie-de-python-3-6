@@ -10,6 +10,9 @@ La PEP sera elle-même acceptée ou refusée
 l'absence de feuilles de route définies à l'avance, les PEP peuvent arriver
 tard dans le cycle de développement.
 
+*[BDFL]: Benevolent Dictator for Life (Dictateur bienveillant à vie)
+*[PEP]: Python Enhancement Proposal (Proposition d'amélioration de Python)
+
 [[i]]
 | Partant de ces propositions, nous pouvons établir une liste de possibles futures fonctionnalités.
 
@@ -17,7 +20,7 @@ Nous ne reparlerons pas ici des **propriétés de classes** et des **sous-interp
 
 # Syntaxe pour les arguments uniquement positionnels ([PEP 457](https://www.python.org/dev/peps/pep-0457/))
 
-Les arguments positionnels en Python sont les arguments passés aux fonctions qui sont assignés aux paramètres en fonction de leur position.
+Les arguments positionnels en Python sont les arguments passés aux fonctions qui sont assignés aux paramètres suivant leur position.
 Par exemple, avec une fonction `def add(x, y): pass`, dans l'expression `add(3, 5)`, le paramètre `x` récupérera la valeur du premier argument (3), et `y` celle du second (5).
 Avec une expression telle que `add(x=3, y=5)` (ou `add(y=5, x=3)` équivalente), la correspondance se fait par le nom des paramètres, on parle alors d'arguments nommés.
 
@@ -40,15 +43,16 @@ L'idée serait d'avoir une expression `expression except exception_type: default
 
 Ainsi, les deux codes suivants seraient équivalents.
 
-* ```python
-  result = a / b except ZeroDivisionError: 0
-  ```
-* ```python
-  try:
-      result = a / b
-  except ZeroDivisionError:
-      result = 0
-  ```
+```python
+result = a / b except ZeroDivisionError: 0
+```
+
+```python
+try:
+    result = a / b
+except ZeroDivisionError:
+    result = 0
+```
 
 # Généralisation de l'interpolation de chaînes ([PEP 501](https://www.python.org/dev/peps/pep-0501/))
 

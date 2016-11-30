@@ -57,7 +57,7 @@ Les fonctionnalités listées ici seront bien sûr détaillées par la suite.
 
  -  [PEP 487](https://www.python.org/dev/peps/pep-0487/) : une nouvelle méthode (`__init_subclass__`) permet d'interférer sur la création de classes filles à la classe courante ; et les descripteurs sont informés lorsqu'ils sont assignés à un attribut de la classe, *via* leur méthode `__set_name__`.
 
- -  [PEP 525](https://www.python.org/dev/peps/pep-0525/) : il devient possible d'écrire générateurs asynchrones.
+ -  [PEP 525](https://www.python.org/dev/peps/pep-0525/) : il devient possible d'écrire des générateurs asynchrones.
     Ils fonctionneront comme des générateurs habituels, à utiliser depuis d'autres coroutines.
 
     ```python

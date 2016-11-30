@@ -88,7 +88,7 @@ coords = OrderedDict([('x', 0), ('y', 5), ('z', 1)])
 | {'x': 0, 'y': 5, 'z': 1}
 | ```
 |
-| CPython reprend ici les travaux entrepris par *pypy* pour construire une version des dictionnaires plus compacte, c'est à dire occupant moins despace en mémoire.
+| CPython reprend ici les travaux entrepris par *pypy* pour construire une version des dictionnaires plus compacte, c'est à dire occupant moins d'espace en mémoire.
 
 # Protocole de gestion des chemins de fichiers — [PEP 519](https://www.python.org/dev/peps/pep-0519/)
 
@@ -118,7 +118,7 @@ Nous avons ici notre propre type d'objet (`UserHome`), qui est interprété par 
 # Préservation de l'ordre des attributs définis dans les classes — [PEP 520](https://www.python.org/dev/peps/pep-0520/)
 
 Similairement à la PEP 468, le dictionnaire des attributs d'une classe est maintenant assuré d'être ordonné.
-Il conservera alors l'ordre de définition des attributs dans le corps de la classe.
+Il conservera alors l'ordre de définition des attributs et méthodes dans le corps de la classe.
 
 Cela peut servir pour des classes dont l'ordre des attributs/méthodes serait important, telle qu'une énumération (`Enum`).
 Cela permet aussi une meilleure introspection des classes.
@@ -166,7 +166,7 @@ Creation of <class '__main__.Ok'>
 ```
 
 Cette méthode de classe reçoit aussi en paramètre l'ensemble des arguments nommés passés lors de l'héritage.
-Vous ne le saviez peut-être pas, mais des arguments peuvent être donnés lors d'un héritage (notamment pour la précision de la métaclasse).
+Vous ne le saviez peut-être pas, mais des arguments peuvent être donnés lors de la création d'une classe (notamment pour la précision de la métaclasse).
 Il était déjà possible auparavant de les récupérer dans les méthode `__new__` et `__init__` des métaclasses.
 
 ```python
@@ -189,7 +189,7 @@ Cette PEP ajoute aussi une nouvelle méthode spéciale aux descripteurs, la mét
 Elle permet au descripteur de savoir quel nom d'attribut lui a été donné au sein de la classe.
 En effet, la méthode sera appelée suite à la création de la classe, avec comme arguments la classe et le nom du descripteur.
 
-Cela peut s'avérer utile pour les descripteurs qui donnent accès à un autre attribut de l'objet, dont le nom peut maintenant être interpolé depuis celi du descripteur.
+Cela peut s'avérer utile pour les descripteurs qui donnent accès à un autre attribut de l'objet, dont le nom peut maintenant être interpolé depuis celui du descripteur.
 
 Dans l'exemple suivant, nous avons des descripteurs `width` et `height` qui permettent un accès en lecture à `_width` et `_height`.
 
