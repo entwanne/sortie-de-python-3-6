@@ -76,8 +76,8 @@ Si `obj` était une expression plus complète, on pourrait aussi avoir un soucis
 
 Les opérateurs de coalescence seraient au nombre de 3 :
 
- -  `??` (*None-coalescing*) permet d'avoir une valeur par défaut si l'expression à gauche de l'opérateur s'évalue à `None` ;
- -  `?.` (*None-aware attribute access*) permet de n'accéder à l'attribut d'un objet que si cet objet n'est pas `None` (comme dans l'exemple plus haut) ;
+ -  `??` (*None-coalescing*), afin d'avoir une valeur par défaut si l'expression à gauche de l'opérateur s'évalue à `None` ;
+ -  `?.` (*None-aware attribute access*), pour n'accéder à l'attribut d'un objet que si cet objet n'est pas `None` (comme dans l'exemple plus haut) ;
  -  `?.[]` (*None-aware indexing*) permet de faire de même lors de l'accès aux éléments d'un conteneur (`container[...]`).
 
 On aurait alors :
