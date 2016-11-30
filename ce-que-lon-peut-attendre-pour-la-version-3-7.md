@@ -74,10 +74,11 @@ Il est courant de rencontrer des expressions telles que `obj.attr if obj is not 
 Cette expression présente le problème de s'avérer un peu lourde et d'être répétitive (`obj` y apparaît deux fois).
 Si `obj` était une expression plus complète, on pourrait aussi avoir un soucis de double-évaluation.
 
-Les opérateurs de coalescence seraient au nombre de 3 : `??` (*None-coalescing*), `?.` (*None-aware attribute access*) et `?.[]` (*None-aware indexing*).
-Le premier permettant d'avoir une valeur par défaut si l'expression à gauche de l'opérateur s'évalue à `None`.
-Le second de n'accéder à l'attribut d'un objet que si cet objet n'est pas `None` (comme dans l'exemple plus haut).
-Et le dernier de faire de même lors de l'accès aux éléments d'un conteneur (`container[...]`).
+Les opérateurs de coalescence seraient au nombre de 3 :
+
+ -  `??` (*None-coalescing*), afin d'avoir une valeur par défaut si l'expression à gauche de l'opérateur s'évalue à `None` ;
+ -  `?.` (*None-aware attribute access*), pour n'accéder à l'attribut d'un objet que si cet objet n'est pas `None` (comme dans l'exemple plus haut) ;
+ -  `?.[]` (*None-aware indexing*) permet de faire de même lors de l'accès aux éléments d'un conteneur (`container[...]`).
 
 On aurait alors :
 
