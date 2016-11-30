@@ -88,7 +88,7 @@ coords = OrderedDict([('x', 0), ('y', 5), ('z', 1)])
 | {'x': 0, 'y': 5, 'z': 1}
 | ```
 |
-| CPython reprend ici les travaux entrepris par *pypy* pour construire une version des dictionnaires plus compacte, c'est à dire occupant moins d'espace en mémoire.
+| CPython reprend ici les travaux entrepris par *pypy* pour construire une version des dictionnaires plus compacte, c'est-à-dire occupant moins d'espace en mémoire.
 
 # Protocole de gestion des chemins de fichiers — [PEP 519](https://www.python.org/dev/peps/pep-0519/)
 
@@ -113,7 +113,7 @@ for filename in os.listdir(UserHome('clem')):
     print(filename)
 ```
 
-Nous avons ici notre propre type d'objet (`UserHome`), qui est interprété par les fonctions systèmes (`os.listdir` dans notre cas) comme un chemin de fichier.
+Nous avons ici notre propre type d'objet (`UserHome`), qui est interprété par les fonctions système (`os.listdir` dans notre cas) comme un chemin de fichier.
 
 # Préservation de l'ordre des attributs définis dans les classes — [PEP 520](https://www.python.org/dev/peps/pep-0520/)
 
@@ -167,7 +167,7 @@ Creation of <class '__main__.Ok'>
 
 Cette méthode de classe reçoit aussi en paramètre l'ensemble des arguments nommés passés lors de l'héritage.
 Vous ne le saviez peut-être pas, mais des arguments peuvent être donnés lors de la création d'une classe (notamment pour la précision de la métaclasse).
-Il était déjà possible auparavant de les récupérer dans les méthode `__new__` et `__init__` des métaclasses.
+Il était déjà possible auparavant de les récupérer dans les méthodes `__new__` et `__init__` des métaclasses.
 
 ```python
 >>> class SubclassMePlease:
@@ -178,7 +178,7 @@ Il était déjà possible auparavant de les récupérer dans les méthode `__new
 >>> class Roger(SubclassMePlease, name='roger'):
 ...     pass
 ...
-Creation of <class '__main__.Ok'> with name roger
+Creation of <class '__main__.Roger'> with name roger
 >>> Roger.name
 'roger'
 ```
@@ -219,8 +219,8 @@ class Rect:
 Les mots-clés `async` et `await` [introduits avec Python 3.5](/articles/1568/decouvrons-la-programmation-asynchrone-en-python/#5-la-syntaxe-asynchrone-de-python-3-5) connaissent une nouvelle extension.
 En effet, il devient désormais possible de coupler les coroutines avec des générateurs et des compréhensions (listes en intension, *generator expressions*).
 
-C'est à dire que l'on va pouvoir définir un générateur asynchrone, qui dépendra d'événements externes pour produire ses valeurs.
-L'itération sur ces générateurs devra alors être réalisée *via* `async for` plutôt qu'un simple `for`, au sein des coroutines.
+C'est-à-dire que l'on va pouvoir définir un générateur asynchrone, qui dépendra d'événements externes pour produire ses valeurs.
+L'itération sur ces générateurs devra alors être réalisée *via* `async for` plutôt qu'un simple `for`, au sein de coroutines.
 
 Imaginons un générateur qui produirait les lignes d'un texte en les récupérant depuis un programme distant. Nous le représenterons ici par une itération sur un fichier, faisant une pause d'une seconde après chaque ligne pour illustrer une certaine latence.
 
