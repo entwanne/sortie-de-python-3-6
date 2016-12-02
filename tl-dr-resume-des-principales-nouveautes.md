@@ -1,5 +1,5 @@
 Comme pour la version précédente, commençons par un résumé des [principales nouveautés](https://docs.python.org/3.6/whatsnew/3.6.html).
-Les fonctionnalités listées ici seront bien sûr détaillées par la suite.
+Les fonctionnalités listées ici seront bien sûr détaillées par la suite. Pour rappel, les [PEP](https://www.python.org/dev/peps/) sont des spécifications décrivant les potentielles fonctionnalités du langage.
 
  -  [PEP 498](https://www.python.org/dev/peps/pep-0498/) : les chaînes de caractères peuvent maintenant être préfixées du symbole `f` pour être interpolées en fonction des variables du scope courant.
 
@@ -30,7 +30,7 @@ Les fonctionnalités listées ici seront bien sûr détaillées par la suite.
     ```
 
  -  [PEP 519](https://www.python.org/dev/peps/pep-0519/) : ajout d'un protocole pour les chemins de fichiers.
-    Il devient maintenant plus facile de manipuler des chemins et d'interagir avec les fonctions système.
+    Il devient maintenant plus facile de manipuler des chemins et d'interagir avec les fonctions systèmes.
 
     ```python
     >>> import pathlib
@@ -55,7 +55,7 @@ Les fonctionnalités listées ici seront bien sûr détaillées par la suite.
     mappingproxy({..., 'x': 0, 'y': 0, 'z': 0, ...})
     ```
 
- -  [PEP 487](https://www.python.org/dev/peps/pep-0487/) : une nouvelle méthode (`__init_subclass__`) permet d'interférer sur la création de classes filles à la classe courante ; et les descripteurs sont informés lorsqu'ils sont assignés à un attribut de la classe, *via* leur méthode `__set_name__`.
+ -  [PEP 487](https://www.python.org/dev/peps/pep-0487/) : une nouvelle méthode (`__init_subclass__`) permet d'interférer depuis une classe mère sur la création de ses filles ; et les descripteurs sont informés lorsqu'ils sont assignés à un attribut de la classe, *via* leur méthode `__set_name__`.
 
  -  [PEP 525](https://www.python.org/dev/peps/pep-0525/) : il devient possible d'écrire des générateurs asynchrones.
     Ils fonctionneront comme des générateurs habituels, à utiliser depuis d'autres coroutines.
