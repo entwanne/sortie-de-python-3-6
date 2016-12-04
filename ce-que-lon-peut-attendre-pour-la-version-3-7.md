@@ -58,7 +58,7 @@ except ZeroDivisionError:
 
 L'interpolation de chaînes arrivée avec Python 3.6 ouvre de nouvelles perspectives pour les versions suivantes.
 
-Avec le préfixe `f`, les chaînes sont automatiquement formatées à l'exécution, ce qui fait que nous n'avons pas la main sur le formatage. Il n'est donc ni possible de réutiliser une chaîne préfixée par `f`, ni de personnaliser la manière dont elle sera formatée, ce qui peut être intéressant notamment pour des raisons de sécurité (pour contrer les injections SQL par exemple).
+Avec le préfixe `f`, les chaînes sont automatiquement formatées à l'exécution, à partir de la méthode `__format__` des objets référencés. Il n'est donc possible ni d'appliquer plusieurs fois le formatage, ni de personnaliser ce dernier en fonction du contexte, ce qui peut être intéressant pour des raisons de sécurité notamment (on souhaitera par exemple formater de façon particulière une chaîne lorsqu'elle est intégrée à une requête SQL, pour contrer les [injections](https://zestedesavoir.com/articles/193/les-injections-sql/)).
 
 Cette PEP souhaite pallier ces manques en introduisant le préfixe `i`. L'expression `i'...'` retournerait un objet d'un nouveau type (un *template*) dont la méthode `__format__` (appelée par `format(...)`) se chargerait du formatage proprement dit. En particulier, `format(i'Bonjour {name}')` serait équivalent à `f'Bonjour {name}'`. Il deviendrait aussi possible d'étendre le type de *template* pour implémenter sa propre méthode `__format__` et bénéficier d'un formatage différent.
  
