@@ -58,12 +58,10 @@ except ZeroDivisionError:
 
 L'interpolation de chaînes arrivée avec Python 3.6 ouvre de nouvelles perspectives pour les versions suivantes.
 
-À l'instar du nouveau préfixe `f` pour les chaînes de caractères, cette PEP demande l'ajout d'un préfixe `i` tel que `f'Bonjour {name}'` soit équivalent à `format(i'Bonjour {name}')`.
-L'expression `i'...'` retournerait un objet d'un nouveau type (un *template*) dont la méthode `__format__` (appelée par `format(...)`) se chargerait du formatage proprement dit, correspondant à l'actuel préfixe `f`.
+Avec le préfixe `f`, les chaînes sont automatiquement formatées à l'exécution, ce qui fait que nous n'avons pas la main sur le formatage. Il n'est donc ni possible de réutiliser une chaîne préfixée par `f`, ni de personnaliser la manière dont elle sera formatée, ce qui peut être intéressant notamment pour des raisons de sécurité (pour contrer les injections SQL par exemple).
 
-Cette PEP permettrait d'appliquer plusieurs fois `format` sur un *template* et donc de le réutiliser.
-Il deviendrait aussi possible d'étendre le type de *template* pour implémenter sa propre méthode `__format__` et bénéficier d'un formatage différent (pour des raisons de sécurité par exemple).
-
+Cette PEP souhaite pallier ces manques en introduisant le préfixe `i`. L'expression `i'...'` retournerait un objet d'un nouveau type (un *template*) dont la méthode `__format__` (appelée par `format(...)`) se chargerait du formatage proprement dit. En particulier, `format(i'Bonjour {name}')` serait équivalent à `f'Bonjour {name}'`. Il deviendrait aussi possible d'étendre le type de *template* pour implémenter sa propre méthode `__format__` et bénéficier d'un formatage différent.
+ 
 # Opérateurs de coalescence ([PEP 505](https://www.python.org/dev/peps/pep-0505/))
 
 Les opérateurs de coalescence (*null-coalescing*) sont des opérateurs qui simplifient la gestion des valeurs nulles, que l'on retrouve dans plusieurs langages (C#, Ruby, Perl, PHP, etc.).
